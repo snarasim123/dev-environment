@@ -1,43 +1,42 @@
-# Snowplow Development Environment
+# Vagrant based Development Environment
 
 [Vagrant] [vagrant]-based development environment with [Ansible] [ansible] playbooks to install common tools, including:
 
 * The JVM ecosystem
-* Ruby
 * Postgres
+* neo4j
 
-Works fine on Linux, Mac and Windows hosts.
 
-Used as the development environment for all [Snowplow Analytics] [snowplow] projects.
+Works on Linux, Mac and Windows hosts.
 
 ## Installation
 
 ### Dependencies
 
-To use this development environment, you need to have [Vagrant] [vagrant-install] and [VirtualBox] [virtualbox-install] installed.
+To use this, you need to have [Vagrant] [vagrant-install] and [VirtualBox] [virtualbox-install] installed.
 
-We also recommend installing vagrant-vbguest to prevent the VirtualBox Guest Additions from getting out of sync:
-
-	$ vagrant plugin install vagrant-vbguest
+Also install vagrant-vbguest to prevent the VirtualBox Guest Additions from getting out of sync:
+    $ vagrant plugin install vagrant-winnfsd
+    $ vagrant plugin install vagrant-vbguest
 
 ### Starting Vagrant
 
 First, clone the repo, including `ansible-playbooks` submodule:
 
-	$ git clone --recursive https://github.com/snowplow/dev-environment.git
-	$ cd dev-environment
+    $ git clone --recursive https://github.com/snarasim123/dev-environment.git
+    $ cd dev-environment
 
 By default the development environment is configured with 2 GB of RAM. You can adjust this by running the `configure.sh` script, e.g. for 5 GB try:
 
-	$ ./scripts/configure.sh 5
+    $ ./scripts/configure.sh 5
 
 Now you can build the VM:
 
-	$ vagrant up
+    $ vagrant up
 
 And SSH into it:
 
-	$ vagrant ssh
+    $ vagrant ssh
 
 ### Installing software
 

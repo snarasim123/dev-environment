@@ -2,6 +2,7 @@
 
 ANSIBLE_DIR="/home/vagrant/ansible" 
 ANSIBLE_HOSTS="/vagranthost"
+ANSIBLE_PLAYBOOK_DIR="/home/vagrant/ansible-playbooks" 
 HOSTS_LOCATION_ON_VM="/home/vagrant/ansible_hosts"
 
 cp /vagrant${ANSIBLE_HOSTS} ${HOSTS_LOCATION_ON_VM} && chmod -x ${HOSTS_LOCATION_ON_VM}
@@ -24,6 +25,9 @@ echo "Installing Ansible on guest VM"
 touch /home/vagrant/.bashrc
 echo "source $ANSIBLE_DIR/hacking/env-setup" >> /home/vagrant/.bashrc
 echo "export ANSIBLE_HOSTS=${HOSTS_LOCATION_ON_VM}" >> /home/vagrant/.bashrc
+
+echo "Downloading Ansible Playbooks to ${ANSIBLE_PLAYBOOK_DIR}"
+git clone https://3182c0cbb8b1f7e80e39ba605a8e597aa3a6dc05@github.com/snarasim123/ansible-playbooks.git ${ANSIBLE_PLAYBOOK_DIR} 
 
 echo "provision.sh completed running."
 echo "You will now be able to use Ansible to install the rest of the packages / frameworks you require"
